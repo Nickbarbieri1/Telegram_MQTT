@@ -1,4 +1,4 @@
-from MQTT.py import *
+from MQTT import *
 import subprocess
 import time
 
