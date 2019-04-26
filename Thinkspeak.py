@@ -17,9 +17,13 @@ def DiesciMinuti():
     u = subprocess.Popen(['echo', Rec], stdout=subprocess.PIPE)
     subprocess.call(['nc', 'api.thingspeak.com', '80'], stdin=u.stdout)
 
-while True:
-    time.sleep(60.0 - ((time.time() - start) % 60.0))
-    UnMinuto()
-    if count % 10 == 0:
-        time.sleep(15)
-        DiesciMinuti()
+if __name__ == '__main__':
+    main()
+
+def main():
+    while True:
+        time.sleep(60.0 - ((time.time() - start) % 60.0))
+        UnMinuto()
+        if count % 10 == 0:
+            time.sleep(15)
+            DiesciMinuti()
